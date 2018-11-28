@@ -38,15 +38,17 @@ GM_addStyle(`
 }
 `)
 
-document.querySelector('body').insertAdjacentHTML('afterbegin',`
-  <div id="x_api">
-    <span>X</span>
-    <strong>API Key</strong>
-    <input type="text">
-    <p></p>
-  </div>
-  <div id="x_api_error"><strong>API ERROR:&nbsp;</strong><span></span></div>
-`)
+if (document.querySelector('#x_api') === null) {
+  document.querySelector('body').insertAdjacentHTML('afterbegin',`
+    <div id="x_api">
+      <span>X</span>
+      <strong>API Key</strong>
+      <input type="text">
+      <p></p>
+    </div>
+    <div id="x_api_error"><strong>API ERROR:&nbsp;</strong><span></span></div>
+  `)
+}
 
 let api_key = localStorage.getItem('x_api_key')
 
