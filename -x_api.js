@@ -43,6 +43,7 @@ document.querySelector('body').insertAdjacentHTML('afterbegin',`
     <span>X</span>
     <strong>API Key</strong>
     <input type="text">
+    <p></p>
   </div>
   <div id="x_api_error"><strong>API ERROR:&nbsp;</strong><span></span></div>
 `)
@@ -54,10 +55,12 @@ const torn_api = async (args) => {
   const res = await fetch(`https://api.torn.com/${a[0]}/${a[1]}?selections=${a[2]}&key=${api_key}`)
   const r = await res.json()
   if (r.error) {
+    console.error('API ERROR', r.error)
     switch (r.error.code) {
       case 1:
       case 2:
         localStorage.removeItem('x_api_key')
+        document.querySelector('#x_api p').innerText = r.error.code +' - '+ r.error.error
         document.querySelector('#x_api').style.visibility = 'visible'
         break
       default:
