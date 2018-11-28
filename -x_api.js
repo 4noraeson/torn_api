@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         -X_API
-// @namespace    namespace
-// @version      0.1
-// @description  API key input and general api call function
-// @author       tos
-// @match       *.torn.com/*
-// @grant        GM_addStyle
-// ==/UserScript==
-
 GM_addStyle(`
 #x_api {
   background-color: #ead1d1;
